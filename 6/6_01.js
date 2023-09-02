@@ -2,4 +2,4 @@
 let array = ['WOMAN','MEN'];
 
 // 配列の出力
-console.log(array);
+console.log(array[1]);
