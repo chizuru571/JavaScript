@@ -7,5 +7,5 @@ let target = document.getElementById('text01');
 target.addEventListener('blur', function() {
     let span = document.getElementById('text');
 // 入力した文字列を表示する
-    span.innerText = document.text.value;
+    span.innerText = target.value;
 });
