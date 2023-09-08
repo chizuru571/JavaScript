@@ -7,3 +7,7 @@ console.log(fruits['grape']);　
 for (key in fruits) {
     console.log(key);
 }
+// 4．連想配列名fruitsの全ての値を出力してください
+for (key in fruits) {
+    console.log(fruits[key]);
+}
