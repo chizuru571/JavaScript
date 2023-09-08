@@ -8,6 +8,7 @@ console.log(array);
 array.push('grape');
 console.log(array);
 // 4．配列fruitの末尾を「lime」に変更する
-array.push('lime');
+array[3] = 'lime'
+console.log(array);
 // 5．配列fruitをconsole.logで出力
 console.log(array);
