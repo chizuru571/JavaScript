@@ -7,4 +7,3 @@ console.log(fruits['grape']);　
 for (key in fruits) {
     console.log(key);
 }
-console.log(fruits); 
