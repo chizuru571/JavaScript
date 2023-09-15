@@ -1,7 +1,7 @@
 // 以下に実装してください
-// 1.<div id=”p1”></div>を、inputタグに変更する（inputタグの属性は自由）
+// 1.<div id=”p1”></div>を、inputタグを追加する（inputタグの属性は自由）
 let e1 = document.getElementById('p1');
-e1.type = 'input';
+e1.innerText = '<input type="text">' ;
 console.log(e1);
 // 2.<div id=”p2”></div>に「テキスト文字列」というテキスト文字列を埋め込む
 let e2 = document.getElementById('p2');
