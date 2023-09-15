@@ -35,21 +35,22 @@ let cate2 = [
 
 // 商品の定義
 var itemList = [
-    { id: '0001', name: 'ソファベッド', tags: ['ベッド', 'ソファ', '寝具'] ,price: ['10,000']},
-    { id: '0002', name: 'シングルベッド', tags: ['ベッド', 'ソファ', '寝具'] ,price: ['15,000']},
+    { id: '0001', name: 'ソファベッド', tags: ['ベッド', 'ソファ', '寝具'] ,price: '10,000'
+    },
+    { id: '0002', name: 'シングルベッド', tags: ['ベッド', 'ソファ', '寝具'] ,price: '15,000'},
     { id: '0003', name: '子ども用ベッド', tags: ['ベッド', 'ソファ', '寝具', '子ども部屋家具'] ,price: ['6,000']},
-    { id: '0004', name: 'ソファ', tags: ['ソファ'] ,price: ['12,000']},
-    { id: '0005', name: 'キューブボックス', tags: ['家具・ラック', '収納システム'] ,price: ['500']},
-    { id: '0006', name: 'オープンラック', tags: ['家具・ラック', '収納システム'] ,price: ['3,000']},
-    { id: '0007', name: 'コンピュータデスク', tags: ['テーブル・椅子'] ,price: ['10,000']},
-    { id: '0008', name: 'サイドテーブル', tags: ['テーブル・椅子'] ,price: ['13,000']},
-    { id: '0009', name: 'ダイニングテーブル', tags: ['テーブル・椅子'] ,price: ['50,000']},
-    { id: '0010', name: '子ども部屋用収納', tags: ['収納システム', '子ども部屋家具'] ,price: ['3,000']},
-    { id: '0011', name: '鍋', tags: ['土鍋・卓上鍋'] ,price: ['1,000']},
-    { id: '0012', name: '冷蔵庫', tags: ['キッチン家電'] ,price: ['80,000']},
-    { id: '0013', name: '炊飯器', tags: ['キッチン家電'] ,price: ['30,000']},
-    { id: '0014', name: '包丁・ナイフ', tags: ['キッチンツール'] ,price: ['2,000']},
-    { id: '0015', name: 'ボウル・ざる', tags: ['キッチンツール'] ,price: ['800']},
+    { id: '0004', name: 'ソファ', tags: ['ソファ'] ,price: '12,000'},
+    { id: '0005', name: 'キューブボックス', tags: ['家具・ラック', '収納システム'] ,price: '500'},
+    { id: '0006', name: 'オープンラック', tags: ['家具・ラック', '収納システム'] ,price: '3,000'},
+    { id: '0007', name: 'コンピュータデスク', tags: ['テーブル・椅子'] ,price: '10,000'},
+    { id: '0008', name: 'サイドテーブル', tags: ['テーブル・椅子'] ,price: '13,000'},
+    { id: '0009', name: 'ダイニングテーブル', tags: ['テーブル・椅子'] ,price: '50,000'},
+    { id: '0010', name: '子ども部屋用収納', tags: ['収納システム', '子ども部屋家具'] ,price: '3,000'},
+    { id: '0011', name: '鍋', tags: ['土鍋・卓上鍋'] ,price: '1,000'},
+    { id: '0012', name: '冷蔵庫', tags: ['キッチン家電'] ,price: '80,000'},
+    { id: '0013', name: '炊飯器', tags: ['キッチン家電'] ,price: '30,000'},
+    { id: '0014', name: '包丁・ナイフ', tags: ['キッチンツール'] ,price: '2,000'},
+    { id: '0015', name: 'ボウル・ざる', tags: ['キッチンツール'] ,price: '800'},
 ];
 
 
@@ -92,7 +93,13 @@ function setSubMenu(idx) {
         cate2Element.appendChild(option); // select要素の子要素としてoption要素を追加        
     }
 }
-
+    // cate2[idx].forEach(e => {
+    //     let option = document.createElement('option');
+    //     option.value = e;
+    //     option.text = e;
+    //     cate2Element.appendChild(option); // select要素の子要素としてoption要素を追加        
+    // });
+    
 //　商品一覧の表示の巻子
 function viewItemList(tag) {
     itemListElement.innerHTML = '';
@@ -107,6 +114,19 @@ function viewItemList(tag) {
             itemListElement.appendChild(li);
         }
     }
+        // for (let j = 0; j < itemList[i].tags.length; j++) {
+        //     let t = itemList[i].tags[j];
+        //     if (t === tag) {
+        //         // li要素を作成
+        //         let li = document.createElement('li');
+        //         // テキスト情報を作成
+        //         let text = document.createTextNode(itemList[i].id + ':' + itemList[i].name + ':' + itemList[i].price);
+        //         // ul要素に追加
+        //         li.appendChild(text);
+        //         itemListElement.appendChild(li);
+        //     }
+        // }
+
 }
 
 //--- イベントリスナーの定義 ---
