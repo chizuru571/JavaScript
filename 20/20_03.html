@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+      <p>ulをv-forで表示した場合</p>
+      <select name="app" id="app">
+        <option v-for= "m in msgs">
+                  {{ m }}
+        </option>
+      </select>
+
+    </div> 
+  <script src="20_03.js" charset="UTF-8"></script>
+</body>
+</html>
