@@ -1,28 +1,13 @@
+/*大分類ならびに小分類のデータもAjaxで読み込むようにプログラムを改良していきましょう。*/
+
 let itemList = [];      // 商品一覧
 
 //--- データの定義 ---
 // 大分類
-let cate1 = [
-  '---',                  // 未選択
-  '家具',
-  'ベッド・マットレス',
-  '収納家具・収納グッズ',
-  '子ども家具'
-];
+let cate1 = [];
 
 // 小分類
-let cate2 = [
-  // 未選択
-  ['---'],
-  // 家具のカテゴリ
-  ['ベッド','ソファ','棚・ラック','テーブル・椅子'],
-  // ベッド・マットレスのカテゴリ
-  ['ベッド','寝具','マットレス'],
-  // 収納家具・収納グッズ'のカテゴリ
-  ['家具・ラック','収納システム'],
-  // 子ども家具
-  ['子ども部屋家具','ベビー家具・ベビーグッズ']
-];
+let cate2 = [];
 
 //--- 共通で使用する要素を取得 ---
 // 大分類のselectをid属性により取得
@@ -125,9 +110,15 @@ cate2Element.addEventListener('change', function(){
 
 // 商品一覧をファイルから取得
 $(function () {
+    var $ajaxURLArr = [
+    'json/item.json',
+    'json/cate1.json',
+    'json/cate2.json'
+  ];
+ for(var i = 0; i < $ajaxURLArr.length; i++){
     $.ajax({
-        url: 'json/item.json',
-        dataType: 'json'
+      url:$ajaxURLArr[i],
+      dataType:'json'
     })
     .done(function (data) {
         itemList = data;
@@ -137,4 +128,5 @@ $(function () {
     .fail(function () {
         alert("ファイルが読み込めませんでした");
     });
+ }
 });

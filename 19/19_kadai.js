@@ -10,6 +10,8 @@ class CountButton extends React.Component {
     this.state = { count: 10};
   }
 
+
+
   //　出力処理
   render() {
     return React.createElement(
