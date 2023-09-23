@@ -10,13 +10,19 @@ class CountButton extends React.Component {
     this.state = { count: 10};
   }
 
-
-
   //　出力処理
   render() {
     return React.createElement(
       "button",
-      { onClick: () => this.setState({ count: this.state.count - 1 }) },
+{ onClick: () => this.setState({ count: countFunc(this.state.count) }) },
+// カウンタの処理用関数
+function countFunc(cnt) {
+  if (cnt == 0) {
+    return 100
+  } else {
+    // それ以外は、１つ減らして返す
+  return cnt - 1;
+}},
       "カウント数：" + this.state.count
     );
   }
