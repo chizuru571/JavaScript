@@ -7,7 +7,7 @@ class CountButton extends React.Component {
   constructor(props) {
     super(props);
     // 状態を保持するプロパティstate
-    this.state = { count: 10};
+    this.state = { count: 100};
   }
 
   //　出力処理
@@ -15,14 +15,6 @@ class CountButton extends React.Component {
     return React.createElement(
       "button",
 { onClick: () => this.setState({ count: countFunc(this.state.count) }) },
-// カウンタの処理用関数
-function countFunc(cnt) {
-  if (cnt == 0) {
-    return 100
-  } else {
-    // それ以外は、１つ減らして返す
-  return cnt - 1;
-}},
       "カウント数：" + this.state.count
     );
   }
@@ -36,4 +28,12 @@ ReactDOM.render(
   React.createElement(CountButton),
   domContainer1
 );
-
+// カウンタの処理用関数
+function countFunc(cnt) {
+  if (cnt == 0) {
+    return 100
+  } else {
+    // それ以外は、１つ減らして返す
+    return cnt - 1;
+  }
+}

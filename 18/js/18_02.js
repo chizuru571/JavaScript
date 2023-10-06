@@ -121,6 +121,7 @@ $(function () {
       dataType:'json'
     })
     .done(function (data) {
+        if()
         itemList = data;
         // 大分類の生成
         setMainMenu(); 
