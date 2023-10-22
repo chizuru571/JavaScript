@@ -3,12 +3,10 @@
 let itemList = [];      // 商品一覧
 
 //--- データの定義 ---
-// 大分類
 let cate1 = [];
 
 // 小分類
-let cate2 = [];
-
+let cate2 = []
 //--- 共通で使用する要素を取得 ---
 // 大分類のselectをid属性により取得
 let cate1Element = document.getElementById('mainMenu');
@@ -41,11 +39,11 @@ function setSubMenu(idx) {
     cate2Element.innerHTML = "";
 
     // 大分類の配列に保存されている数だけoptionとして追加する
-    for (let i = 0; i < cate2[idx].length; i++) {
+    for (let i = 0; i < cate2[idx].cate.length; i++) {
         // option要素を新規に作成
         let option = document.createElement('option');
-        option.value = cate2[idx][i];    // optionの値に配列の値を代入
-        option.text = cate2[idx][i];     // optionの表示文字列に配列の値を代入
+        option.value = cate2[idx].cate[i];    // optionの値に配列の値を代入
+        option.text = cate2[idx].cate[i];     // optionの表示文字列に配列の値を代入
         cate2Element.appendChild(option); // select要素の子要素としてoption要素を追加        
     }
 }
@@ -98,7 +96,7 @@ cate1Element.addEventListener('change', function(){
     // 大分類の選択に合わせて、小分類の生成
     setSubMenu(idx);
     //　小分類が選択されたときに、最初に表示される値
-    viewItemList(cate2[idx][0]);
+    viewItemList(cate2[idx].cate[0]);
 });
 
 // 小分類の選択された時のイベントリスナー
@@ -111,48 +109,23 @@ cate2Element.addEventListener('change', function(){
 // 商品一覧をファイルから取得
 $(function () {
     $.ajax({
-        url: '/json/item.json',
+        url: 'json/items.json',
         dataType: 'json'
     })
     .done(function (data) {
-        itemList = data;
-       // 大分類の生成
-        setMainMenu();
+        // console.log(data);
+        itemList = data.items;
+        cate1 = data.cate1;
+        cate2 = data.cate2;
+        // console.log(itemList);
+        // console.log(cate1);
+        // console.log(cate2);
+        // 大分類の生成
+        setMainMenu(); 
     })
     .fail(function () {
         alert("ファイルが読み込めませんでした");
     });
 });
-/*
-$(function () {
-    var $ajaxURLArr = [
-        './json/item.json',
-        './json/cate1.json',
-        './json/cate2.json'
-    ];
-//   console.log($ajaxURLArr[0]);
- for(var i = 0; i < $ajaxURLArr.length; i++){
-     console.log($ajaxURLArr[i]);
-    $.ajax({
-      url:$ajaxURLArr[i],
-      dataType:'json'
-    })
-    .done(function (data) {
-        if(i == 0){
-            // itemList
-            // itemList = data;
-            console.log('item');
-        }else if(i == 1){
-            // cate1
-            console.log('cate1');
-        }else if(i == 2){
-            // cate2
-            console.log('cate2');
-        }
-    })
-    .fail(function () {
-        alert("ファイルが読み込めませんでした");
-    });
- }
-});
-*/
+
+
